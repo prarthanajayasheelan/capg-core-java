@@ -1,43 +1,38 @@
-package com.capg.operations;
-
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.Scanner;
+package com.capg.dollar;
 
 public class Student {
 	
-		
-		//variables
-		int studentId;
-		String studentName;
-		Date studentDob;
-		
-		Scanner sc  = new Scanner(System.in);
-		//methods to access above variables
-		void readStudentDetails() throws ParseException {
-			System.out.println("Enter the Student data");
-			System.out.println("Enter the student id");
-			studentId = sc.nextInt();
-			System.out.println("Enter the student name");
-			sc.nextLine();//throw away the newline read by scanner
-			studentName = sc.nextLine();
-			System.out.println("Enter the student dob in 'dd/MM/yyyy' ");
-			String dob = sc.nextLine();
-			SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
-			studentDob = sdf.parse(dob);
-		}
-		
-		@SuppressWarnings("deprecation")
-		void displayStudentDetails(){
-			System.out.println("Entered the Student data ...............");
-			System.out.println("Student id = " + studentId );
-			System.out.println("Student name = " + studentName);
-			System.out.println("Student dob = " + studentDob.getDate()+"/"+studentDob.getMonth()+"/"+studentDob.getYear());
-		}
+	String year;
+	int noOfCourses;
+	double cgpa;
 	
+	public Student(String year,int noOfCourses,double gpa)
+	{
+		this.year=year;
+		this.noOfCourses=noOfCourses;
+		this.cgpa=cgpa;
+	}	
+		@Override
+	public String toString() {
+		
+		return "Student[year="+year+"noOfCourses"+noOfCourses+"cgpa="+cgpa+"]";
+	}
 
-	
+public static void main(String[] args)
+{
+	Student s=new Student("fresher",5,8.5);
+	Student s1=new Student("sophomore",7,8.5);
+	Student s2=new Student("junior",5,8.9);
+	Student s3=new Student("senior",9,8.5);
+	System.out.println(s+"\n"+s1+"\n"+s2+"\n"+s3);
+}
+
+
+
+
+
+
+
+
 
 }
-	
